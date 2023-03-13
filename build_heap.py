@@ -30,16 +30,17 @@ def main():
     # TODO : add input and corresponding checks
     # add another input for I or F 
     # first two tests are from keyboard, third test is from a file
-    decision = input()
+    decis = input()
 
     # input from keyboard
-    if "I" in decision:
+    if "I" in decis:
         n = int(input())
-        data = list(map(int, input().split()))
+        unsplit_data = input()
+        data = list(map(int, unsplit_data.split(" ")))
         # checks if lenght of data is the same as the said lenght
         assert len(data) == n
 
-    if "F" in decision:
+    elif "F" in decis:
         file= input()
         if "a" in file:
             return
@@ -54,7 +55,9 @@ def main():
 
     liste = [[] for i in range(n)]
     for i in range(n):
-        liste[data[i]].append(i)
+        #liste[data[i]].append(i)
+        if data[i] < n:
+            liste[data[i]].append(i)
     # calls function to assess the data 
     # and give back all swaps
     swaps = build_heap(data)
