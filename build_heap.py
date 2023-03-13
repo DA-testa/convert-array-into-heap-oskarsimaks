@@ -2,7 +2,6 @@ def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
     # try to achieve  O(n) and not O(n2)
-    swaps = []
     n = len(data)
     for i in range(n//2, -1, -1):
         swaps = sift_down(i, data, swaps)
@@ -12,12 +11,12 @@ def build_heap(data):
 def sift_down(i, data, swaps):
     n = len(data)
     index_min = i
-    left_child = 2*i + 1
-    if left_child < n and data[left_child] < data[index_min]:
-        index_min = left_child
-    right_child = 2*i + 2
-    if right_child < n and data[right_child] < data[index_min]:
-        index_min = right_child
+    lchild = 2*i + 1
+    if lchild < n and data[lchild] < data[index_min]:
+        index_min = lchild
+    rchild = 2*i + 2
+    if rchild < n and data[rchild] < data[index_min]:
+        index_min = rchild
     if i != index_min:
         swaps.append((i, index_min))
         data[i], data[index_min] = data[index_min], data[i]
