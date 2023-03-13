@@ -44,7 +44,7 @@ def main():
         file= input()
         if "a" in file:
             return
-        with open(f"./test/{file}", mode="r") as file:
+        with open(f"./tests/{file}", mode="r") as file:
             n=int(file.readline())
             data = list(map(int, file.readline().split(" ")))
         assert len(data) == n
